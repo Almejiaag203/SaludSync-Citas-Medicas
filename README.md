@@ -1,63 +1,80 @@
-SaludSync - Sistema de Citas Médicas
+# 🏥 SaludSync - Sistema de Citas Médicas
 
-Bienvenido a SaludSync, la plataforma integral diseñada para facilitar la administración de turnos, pacientes y personal médico de manera eficiente y moderna.
+**Gestión Integral de Clínicas**
 
-🚀 Acceso Rápido (Entorno Local)
+Este es un sistema web robusto desarrollado para la administración eficiente de centros médicos. Permite la gestión automatizada de citas, historias clínicas y horarios del personal médico, ofreciendo una interfaz moderna y segura basada en roles.
 
-Para acceder al sistema una vez desplegado en tu servidor local, utiliza los siguientes datos:
+---
 
-URL de Acceso: http://localhost/sistema_citas_medicas/public/index.php?controller=Usuario&action=vistaLogin
+## ✨ Características Principales
 
-🔑 Credenciales de Acceso
+* **📅 Agenda Médica Visual:** Sistema intuitivo para agendar, reprogramar y cancelar citas médicas de manera visual y rápida.
+* **📂 Historias Clínicas Digitales:** Registro centralizado de la información del paciente, diagnósticos y tratamientos previos.
+* **👥 Gestión de Roles:** Administración completa de perfiles con permisos específicos (**Administrador**, **Médico**, **Paciente**).
+* **📧 Acceso Seguro:** Login autenticado mediante correo electrónico y contraseña.
+* **🎨 Interfaz Moderna:** Diseño renovado y *User Friendly* (amigable), adaptado a dispositivos móviles y de escritorio.
 
-Rol
+---
 
-Correo Electrónico
+## 🚀 Acceso al Sistema (Entorno Local)
 
-Contraseña
+Una vez desplegado el proyecto en tu servidor local (XAMPP/WAMP), utiliza la siguiente URL exacta para acceder al Login, ya que el sistema utiliza un enrutador MVC:
 
-Administrador
+### 🔗 Portal de Acceso (Login)
+* **URL:** `http://localhost/sistema_citas_medicas/public/index.php?controller=Usuario&action=vistaLogin`
+---
 
-admin@clinica.com
+## 🔑 Credenciales de Acceso
 
-Xvito2013$
+Para ingresar al sistema con privilegios totales y probar todas las funcionalidades, utiliza los siguientes datos por defecto:
 
-Nota de Seguridad: Estas son credenciales por defecto para el entorno de desarrollo. Se recomienda cambiarlas inmediatamente antes de pasar a producción.
+| Rol | Correo Electrónico | Contraseña |
+| :--- | :--- | :--- |
+| **Administrador** | `admin@clinica.com` | `Xvito2013$` |
 
-🛠️ Tecnologías Utilizadas
+> ⚠️ **Seguridad:** Estas credenciales son públicas en el repositorio. Se recomienda cambiarlas inmediatamente una vez implementado el sistema en un entorno de producción.
 
-SaludSync ha sido construido utilizando un stack robusto y ligero:
+---
 
-Lenguaje Backend: PHP (Arquitectura MVC)
+## 💻 Tecnologías y Librerías
 
-Base de Datos: MySQL
+El proyecto ha sido construido utilizando un stack tecnológico sólido y estándar en la industria:
 
-Frontend: HTML5, CSS3, Bootstrap 4
+### Backend & Base de Datos
+* **PHP (Patrón MVC):** Lógica del servidor estructurada bajo el patrón Modelo-Vista-Controlador para garantizar escalabilidad y orden.
+* **MySQL:** Base de datos relacional optimizada para el almacenamiento de pacientes y citas.
 
-Servidor Web: Apache (XAMPP / WAMP)
+### Frontend & UI
+* **HTML5 & CSS3:** Estructura semántica y estilos modernos.
+* **Bootstrap 4:** Framework para asegurar un diseño totalmente *responsive*.
+* **FontAwesome:** Iconografía profesional para la interfaz.
+* **JavaScript:** Interactividad dinámica y validaciones en tiempo real en el cliente.
 
-📋 Guía de Instalación
+---
 
-Servidor: Asegúrate de tener XAMPP, WAMP o Laragon corriendo.
+## 🛠️ Instalación y Configuración
 
-Despliegue: Coloca la carpeta del proyecto en C:/xampp/htdocs/.
+Sigue estos pasos estrictamente para ejecutar el proyecto en tu computadora:
 
-Renombrado: La carpeta raíz debe llamarse exactamente sistema_citas_medicas para que los enlaces funcionen.
+1.  **Clonar el Repositorio:**
+    Descarga los archivos en tu carpeta de servidor (ej. `C:/xampp/htdocs/`).
+    ```bash
+    git clone <URL_DE_TU_REPOSITORIO>
+    ```
 
-Base de Datos:
+2.  **Configuración de Carpeta (¡Importante!):**
+    Para que la URL funcione correctamente, asegúrate de que la carpeta raíz del proyecto se llame exactamente:
+    > `sistema_citas_medicas`
 
-Entra a http://localhost/phpmyadmin.
+3.  **Base de Datos:**
+    * Abre tu gestor (ej. PHPMyAdmin).
+    * Crea una nueva base de datos llamada: `citas_medicas_db`
+    * Importa el archivo `.sql` incluido en la carpeta `database` del proyecto.
 
-Crea una base de datos llamada citas_medicas_db (o el nombre configurado en config/database.php).
+4.  **¡Listo!**
+    Abre tu navegador, copia y pega la URL de acceso mencionada arriba e inicia sesión.
 
-Importa el script SQL ubicado en la carpeta /database del proyecto.
+---
 
-📝 Características Destacadas
-
-Gestión de Citas: Agenda visual e intuitiva.
-
-Historias Clínicas: Registro digital de pacientes.
-
-Interfaz Moderna: Diseño de Login renovado con soporte para logotipos personalizados.
-
-SaludSync © 2024 - Soluciones Médicas Digitales
+**TECHFUSION DATA © 2025**
+*Desarrollado con fines educativos y profesionales.*
