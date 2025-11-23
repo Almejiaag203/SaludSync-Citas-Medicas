@@ -1,0 +1,79 @@
+<?php require_once __DIR__ . '/../layout/header.php'; ?>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">Expediente de: <?php echo htmlspecialchars($datos_paciente['nombres'] . ' ' . $datos_paciente['apellidos']); ?></h1>
+    <a href="index.php?controller=Medico&action=agenda" class="btn btn-secondary">Volver a la Agenda</a>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-md-8">
+        <ul class="nav nav-tabs" id="expedienteTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="nota-actual-tab" data-bs-toggle="tab" data-bs-target="#nota-actual" type="button">Registrar Consulta Actual</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="historial-tab" data-bs-toggle="tab" data-bs-target="#historial" type="button">Historial Clínico</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="documentos-tab" data-bs-toggle="tab" data-bs-target="#documentos" type="button">Documentos</button>
+            </li>
+        </ul>
+        <div class="tab-content pt-3" id="expedienteTabContent">
+            <div class="tab-pane fade show active" id="nota-actual" role="tabpanel">
+                <h4>Nota de Evolución (Cita ID: <?php echo $id_cita_actual; ?>)</h4>
+                <form action="index.php?controller=Historial&action=guardar" method="POST">
+                    <input type="hidden" name="id_cita" value="<?php echo $id_cita_actual; ?>">
+                    <input type="hidden" name="id_paciente" value="<?php echo $datos_paciente['id_paciente']; ?>">
+                    <div class="mb-3">
+                        <label for="analisis_diagnostico" class="form-label">Análisis y Diagnóstico</label>
+                        <textarea class="form-control" id="analisis_diagnostico" name="analisis_diagnostico" rows="5" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="plan_tratamiento" class="form-label">Plan de Tratamiento</label>
+                        <textarea class="form-control" id="plan_tratamiento" name="plan_tratamiento" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Nota y Completar Cita</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="historial" role="tabpanel">
+                <?php foreach($historial_clinico as $entrada): ?>
+                    <div class="card mb-2">
+                        <div class="card-header">
+                            Fecha: <?php echo date('d/m/Y', strtotime($entrada['fecha_creacion'])); ?>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Diagnóstico:</strong> <?php echo nl2br(htmlspecialchars($entrada['analisis_diagnostico'])); ?></p>
+                            <p><strong>Plan:</strong> <?php echo nl2br(htmlspecialchars($entrada['plan_tratamiento'])); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="tab-pane fade" id="documentos" role="tabpanel">
+                 <ul class="list-group">
+                    <?php foreach ($documentos as $doc): ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <?php echo htmlspecialchars($doc['titulo_documento']); ?>
+                            <a href="<?php echo htmlspecialchars($doc['ruta_archivo']); ?>" class="btn btn-secondary btn-sm" target="_blank">Ver</a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Información del Paciente
+            </div>
+            <div class="card-body">
+                <p><strong>ID Paciente:</strong> <?php echo $datos_paciente['id_paciente']; ?></p>
+                <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($datos_paciente['telefono']); ?></p>
+                <p><strong>Fecha de Nacimiento:</strong> <?php echo htmlspecialchars($datos_paciente['fecha_nacimiento']); ?></p>
+                </div>
+        </div>
+    </div>
+</div>
+
+<?php require_once __DIR__ . '/../layout/footer.php'; ?>
