@@ -59,7 +59,7 @@ Sigue estos pasos estrictamente para ejecutar el proyecto en tu computadora:
 1.  **Clonar el Repositorio:**
     Descarga los archivos en tu carpeta de servidor (ej. `C:/xampp/htdocs/`).
     ```bash
-    git clone <URL_DE_TU_REPOSITORIO>
+    git clone <https://github.com/Almejiaag203/SaludSync-Citas-Medicas>
     ```
 
 2.  **Configuración de Carpeta (¡Importante!):**
